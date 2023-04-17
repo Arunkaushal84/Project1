@@ -1,0 +1,10 @@
+.definition-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.output-box {
+    display: flex;
+    flex-direction: column;
+}
