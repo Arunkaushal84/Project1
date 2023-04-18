@@ -10,7 +10,7 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="./assets/css/style.css">
-        <title></title>
+        <title>Dictionary Translator</title>
     </head>
 
     <body>
@@ -19,6 +19,13 @@
         </header>
 
         <main>
+            <section class="definition-container">
+                <input type="text" id="input-define" maxlength="50" placeholder="Enter your word here..."></input>
+                <input type="submit" id="defineBtn" value="Define" class="btn btn-primary">
+                <p class="text-danger" id="warning-text"></p>
+                <div class="output-box" id="output-define">Definition goes here...</div>
+            </section>
+
         </main>
 
         <script
@@ -28,5 +35,6 @@
         ></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="assets/js/script.js"></script>
+        <script src="assets/js/definition.js"></script>
     </body>
 </html>

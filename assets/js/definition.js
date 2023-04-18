@@ -23,8 +23,6 @@ $(document).ready(function () {
                     }
                 }
 
-                console.log(definitionLabels)
-
                 for (var unitDefine in definitionLabels) {
                     var divEl = document.createElement("div");
                     divEl.className = "definition";
@@ -39,6 +37,7 @@ $(document).ready(function () {
         
                     var define = definitionLabels[unitDefine][i];
                     define = define.charAt(0).toUpperCase() + define.slice(1);
+                    define += ".";
         
                     inListEl.textContent = define;
         
@@ -59,16 +58,42 @@ $(document).ready(function () {
     $("#input-define").on("keydown", function (event) {
         if (event.keyCode === 13) {
             event.preventDefault();
-
-            var word = $("#input-define").val().trim();
-            defineWord(word);
+            searchDefinition();
         }
     });
 
     $("#defineBtn").click(function (event) {
         event.preventDefault();
-        
-        var word = $("#input-define").val().trim();
-        defineWord(word);
+        searchDefinition();
     });
+
+    function searchDefinition() {
+        var word = $("#input-define").val().trim();
+
+        if (word === "") {
+            document.getElementById("warning-text").innerHTML = "Please enter a word...";
+            document.getElementById("output-define").innerHTML = "";
+            return;
+        }
+
+        var apiKey = "ac4a6086-68c9-4b49-a9cc-ad60fc350977";
+        queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + word + "?key=" + apiKey;
+
+        fetch(queryURL)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.length === 0 || !data[0].meta) {
+                    document.getElementById("warning-text").innerHTML = "Word not found! Please enter a valid word for definition.";
+                    document.getElementById("output-define").innerHTML = "";
+                    return;
+                }
+                else {
+                    document.getElementById("warning-text").innerHTML = "";
+                    defineWord(word);
+                }
+            })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    }
 })
