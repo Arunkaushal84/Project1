@@ -1,10 +1,38 @@
+:root {
+    --dark-color: black;
+    --light-color: white;
+    --gray-color: lightgray;
+}
+
 .definition-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .output-box {
     display: flex;
     flex-direction: column;
 }
+
+.definition {
+    border: 1px solid var(--dark-color);
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--gray-color);
+    color: var(--dark-color);
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .definition {
+    animation: fadeIn 0.9s ease-in;
+  }

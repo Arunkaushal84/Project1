@@ -1,9 +1,17 @@
+// Ready function to prevent anything from running unless it is ready and loaded.
 $(document).ready(function () {
 
+    /* 
+        We need a function to take the variable word value from searchDefinition() and put it into local storage then output a search history.
+        Once the search history button is outputted, it should store that word into that button then when clicked it will run the defineWord() function to output the definition again.
+    */ 
 
+    // Function to fetch API data then display the definitions of a user inputted word from searchDefinition().
     function defineWord(word){
+
         var apiKey = "ac4a6086-68c9-4b49-a9cc-ad60fc350977";
         queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + word + "?key=" + apiKey;
+
         fetch(queryURL)
             .then((response) => response.json())
             .then((data) => {
@@ -25,7 +33,7 @@ $(document).ready(function () {
 
                 for (var unitDefine in definitionLabels) {
                     var divEl = document.createElement("div");
-                    divEl.className = "definition";
+                    divEl.className = "definition fade-in";
                     
                     var heading = document.createElement("h3");
                     heading.textContent = unitDefine;
@@ -43,18 +51,29 @@ $(document).ready(function () {
         
                     outListEl.appendChild(inListEl);
                 }
-                    divEl.appendChild(heading);
-                    divEl.appendChild(outListEl);
+                divEl.appendChild(heading);
+                divEl.appendChild(outListEl);
                     
-                    document.getElementById("output-define").appendChild(divEl);
+                document.getElementById("output-define").appendChild(divEl);
                 }
-                
+                setTimeout(() => {
+                    addAnimationDelays();
+                }, 100);
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
     }
 
+    // Function to add in delay in the definition box animation.
+    function addAnimationDelays() {
+        var definitions = document.getElementsByClassName("definition fade-in");
+        for (var i = 0; i < definitions.length; i++) {
+          definitions[i].style.animationDelay = (i * 0.4) + "s";
+        }
+    }
+
+    // Keydown function for when the user uses the "Enter" button.
     $("#input-define").on("keydown", function (event) {
         if (event.keyCode === 13) {
             event.preventDefault();
@@ -62,11 +81,13 @@ $(document).ready(function () {
         }
     });
 
+    // Click function for when the user clicks the "Define" button.
     $("#defineBtn").click(function (event) {
         event.preventDefault();
         searchDefinition();
     });
 
+    // function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
         var word = $("#input-define").val().trim();
 
