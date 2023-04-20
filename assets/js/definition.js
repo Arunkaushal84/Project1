@@ -97,7 +97,7 @@ $(document).ready(function () {
             return;
         }
 
-        var apiKey = "ac4a6086-68c9-4b49-a9cc-ad60fc350977";
+        var apiKey = localStorage.getItem('dictionaryApiKey'); //"ac4a6086-68c9-4b49-a9cc-ad60fc350977";
         queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + word + "?key=" + apiKey;
 
         fetch(queryURL)
