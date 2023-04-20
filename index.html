@@ -13,109 +13,80 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Dictionary Translator</title>
   </head>
+
   <body>
-  <div class="jumbotron">
-    <h1 class="display-4">Welcome, this is your dictionary and translation master!</h1>
-    <p class="lead">
-      This is a simple dictionary and translator app. You can use it to find the meaning of any word and translate it to any language you want. Also you could speak it out for your best understanding.
-    </p>
-    <hr class="my-4" />
-    <p>
-      Choice what function you are looking for and start using it!
-    </p>
-    <p class="lead d-flex justify-content-around">
-      <a class="btn btn-success btn-lg" href="-" role="button">Dictionary</a>
-      <a class="btn btn-success btn-lg" href="-" role="button">Translator</a>
-    </p>
-  </div>
-  <section>
-    <button type="button" class="btn btn-primary" id="toggleButtonA">Toggle container A</button>
-    <div class="container d-none" id="containerA">
-        <h1 class="mt-5">Translation API A</h1>
-        <form>
-            <!-- text area for source text-->
-            <div class="form-group">
-                <label for="inputTextA">Enter text to translate:</label>
-                <textarea class="form-control" id="inputTextA" rows="3" placeholder="Enter text to translate"></textarea>
-            </div>
-            <!-- target language selection-->
-            <div class="form-group">
-                <label for="targetA">Choose Translation Target Language:</label>
-                <select class="form-control" id="translatetargetA">
-                </select>
-            </div>
-            <div class="form-group" id="speechdropdownA">
-                <label for="targetA">Choose Speech Target Language:</label>
-                <select class="form-control" id="speechtargetA">
-                </select>
-            </div>
-            <!-- text area for target language-->
-            <div class="form-group">
-                <label for="outputTextA">Translated text:</label>
-                <textarea class="form-control" id="outputTextA" rows="3" readonly></textarea>
-            </div>
-            <!-- checkbox for speech-->
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="speakCheckBoxA">
-                <label class="form-check-label" for="speakCheckBoxA">Enable Speech Synthesis</label>
-            </div>
-            <!-- button to translate text based on source and target language-->
-            <button type="button" class="btn btn-primary" id="translateA">Translate</button>
-            <button type="button" class="btn btn-primary" id="speechA">Speak</button>
-
-        </form>
+    <div class="p-3 mb-5 text-center text-white bg-dark">
+      <h1 class="display-4">Welcome, this is your dictionary and translation master!</h1>
+      <p class="lead">
+        This is a simple dictionary and translator app. You can use it to find the meaning of any word and translate it to any language you want. Also you could speak it out for your best understanding.
+      </p>
+      <hr class="my-4" />
+      <p>
+        Choice what function you are looking for and start using it!
+      </p>
+      <p class="lead d-flex justify-content-around">
+        <button class="btn btn-success btn-lg" id="toggleButtonB">Dictionary</button>
+        <button class="btn btn-success btn-lg" id="toggleButtonA">Translator</button>
+      </p>
     </div>
 
-    <button type="button" class="btn btn-primary" id="toggleButtonB">Toggle container B</button>
-    <div class="container d-none" id="containerB">
-        <section class="definition-container">
-            <input type="text" id="input-define" maxlength="50" placeholder="Enter your word here..."></input>
-            <input type="submit" id="defineBtn" value="Define" class="btn btn-primary">
-            <p class="text-danger" id="warning-text"></p>
-            <div class="output-box" id="output-define">Definition goes here...</div>
-        </section>
-    </div>
-  </section>
-  <script>
-    const containerA = document.querySelector('#containerA');
-    const buttonA = document.querySelector('#toggleButtonA');
-    const containerB = document.querySelector('#containerB');
-    const buttonB = document.querySelector('#toggleButtonB');
+    <main>
+      <div class="container d-none rounded" id="containerA">
+          <h1 class="mt-5">Translation API A</h1>
+          <form class="p-4">
+              <!-- text area for source text-->
+              <div class="form-group">
+                  <label for="inputText">Enter text to translate:</label>
+                  <textarea class="form-control" id="inputText" rows="3" placeholder="Enter text to translate"></textarea>
+              </div>
+              <!-- target language selection-->
+              <div class="form-group">
+                  <label for="target">Choose Translation Target Language:</label>
+                  <select class="form-control" id="translatetarget">
+                  </select>
+              </div>
+              <div class="form-group" id="speechdropdown">
+                  <label for="target">Choose Speech Target Language:</label>
+                  <select class="form-control" id="speechtarget">
+                  </select>
+              </div>
+              <!-- text area for target language-->
+              <div class="form-group">
+                  <label for="outputText">Translated text:</label>
+                  <textarea class="form-control" id="outputText" rows="3" readonly></textarea>
+              </div>
+              <!-- checkbox for speech-->
+              <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="speakCheckBox">
+                  <label class="form-check-label" for="speakCheckBox">Enable Speech Synthesis</label>
+              </div>
+              <!-- button to translate text based on source and target language-->
+              <button type="button" class="btn btn-primary" id="translate">Translate</button>
+              <button type="button" class="btn btn-primary" id="speech">Speak</button>
 
-    buttonA.addEventListener('click', () => {
-        containerA.classList.toggle('d-none');
-        const isHiddenA = containerA.classList.contains('d-none');
-        console.log(`Container A is hidden: ${isHiddenA}`);
-        if (!isHiddenA) {
-            containerB.classList.add('d-none');
-            console.log(`Container B is hidden: true`);
-        }
-    });
+          </form>
+      </div>
 
-    buttonB.addEventListener('click', () => {
-        containerB.classList.toggle('d-none');
-        const isHiddenB = containerB.classList.contains('d-none');
-        console.log(`Container B is hidden: ${isHiddenB}`);
-        if (!isHiddenB) {
-            containerA.classList.add('d-none');
-            console.log(`Container A is hidden: true`);
-        }
-    });
-</script>
- <script
- src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
- integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
- crossorigin="anonymous"
-></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="assets/js/script.js"></script>
-<script src="assets/js/definition.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="assets/js/script.js"></script>
-    </body>
+      <div class="container d-none rounded p-4" id="containerB">
+          <section class="definition-container">
+              <h2>Dictionary:</h2>
+              <p>Please type in your word below to find the definition(s).</p>
+              <input type="text" id="input-define" maxlength="50" placeholder="Enter your word here..."></input>
+              <input type="submit" id="defineBtn" value="Define" class="btn btn-primary">
+              <p class="text-danger" id="warning-text"></p>
+              <div class="output-box" id="output-define">Definition goes here...</div>
+          </section>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/definition.js"></script>
+    <script src="assets/js/translation.js"></script>
+  </body>
 </html>
