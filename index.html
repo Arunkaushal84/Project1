@@ -26,6 +26,7 @@
       </p>
       <p class="lead d-flex justify-content-around">
         <button class="btn btn-success btn-lg" id="toggleButtonB">Dictionary</button>
+        <button class="btn btn-success btn-lg" id="toggleButtonC">Config</button>
         <button class="btn btn-success btn-lg" id="toggleButtonA">Translator</button>
       </p>
     </div>
@@ -78,6 +79,17 @@
           </section>
       </div>
     </main>
+
+    <div class="container d-none rounded" id="containerC">
+      <h1>API Key Configuration</h1>
+      <form id="apiKeyForm">
+        <label for="googleAPIKeyInput">Google Translate API Key:</label>
+        <input type="text" id="googleAPIKeyInput" name="googleAPIKeyInput"><br>
+        <label for="googleAPIKeyInput">Dictionary API Key:</label>
+        <input type="text" id="dictionaryApiKeyInput" name="dictionaryApiKeyInput"><br>
+        <button type="submit">Save API Key</button>
+      </form>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

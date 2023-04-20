@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyBljBSfIn964aICm5vDOVmd76GexCJJlNY';
+const apiKey = localStorage.getItem('googleApiKey'); //'AIzaSyBljBSfIn964aICm5vDOVmd76GexCJJlNY';
 let synth = speechSynthesis,
     inputForm = document.querySelector('form'),
     inputTxt = document.querySelector('#inputText'),
