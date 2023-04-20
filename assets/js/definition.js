@@ -87,7 +87,7 @@ $(document).ready(function () {
         searchDefinition();
     });
 
-    // function to check user inputted word is valid or not then pass it to defineWord() function.
+    // Function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
         var word = $("#input-define").val().trim();
 
