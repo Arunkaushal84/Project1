@@ -31,19 +31,19 @@ $(document).ready(function () {
                     }
                 }
 
-                for (var unitDefine in definitionLabels) {
+                for (var unitLabel in definitionLabels) {
                     var divEl = document.createElement("div");
                     divEl.className = "definition fade-in";
                     
                     var heading = document.createElement("h3");
-                    heading.textContent = unitDefine;
+                    heading.textContent = unitLabel;
                     
                     var outListEl = document.createElement("ol");
     
-                for (var i = 0; i < definitionLabels[unitDefine].length; i++) {
+                for (var i = 0; i < definitionLabels[unitLabel].length; i++) {
                     var inListEl = document.createElement("li");
         
-                    var define = definitionLabels[unitDefine][i];
+                    var define = definitionLabels[unitLabel][i];
                     define = define.charAt(0).toUpperCase() + define.slice(1);
                     define += ".";
         
