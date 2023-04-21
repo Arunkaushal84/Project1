@@ -72,7 +72,6 @@ $(document).ready(function () {
           definitions[i].style.animationDelay = (i * 0.4) + "s";
         }
     }
-
     // Keydown function for when the user uses the "Enter" button.
     $("#input-define").on("keydown", function (event) {
         if (event.keyCode === 13) {
@@ -97,7 +96,7 @@ $(document).ready(function () {
             return;
         }
 
-        var apiKey = localStorage.getItem('dictionaryApiKey'); //"ac4a6086-68c9-4b49-a9cc-ad60fc350977";
+        var apiKey = "ac4a6086-68c9-4b49-a9cc-ad60fc350977";
         queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + word + "?key=" + apiKey;
 
         fetch(queryURL)
