@@ -16,6 +16,7 @@ buttonA.addEventListener('click', () => {
     console.log(`Container A is hidden: ${isHiddenA}`);
     if (!isHiddenA) {
         containerB.classList.add('d-none');
+        containerC.classList.add('d-none');
         console.log(`Container B is hidden: true`);
     }
 });
@@ -28,6 +29,7 @@ buttonB.addEventListener('click', () => {
     console.log(`Container B is hidden: ${isHiddenB}`);
     if (!isHiddenB) {
         containerA.classList.add('d-none');
+        containerC.classList.add('d-none');
         console.log(`Container A is hidden: true`);
     }
 });
@@ -36,21 +38,18 @@ buttonC.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
     containerC.classList.toggle('d-none');
-    const isHiddenC = containerB.classList.contains('d-none');
+    const isHiddenC = containerC.classList.contains('d-none');
     console.log(`Container C is hidden: ${isHiddenC}`);
     if (!isHiddenC) {
         containerA.classList.add('d-none');
+        containerB.classList.add('d-none');
         console.log(`Container C is hidden: true`);
     }
 });
-
-
-
-
         // Save API key to local storage when the form is submitted
-    apiKeyForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        localStorage.setItem("googleApiKey", googleApiKey.value);
-        localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
-        alert("API key saved!");
-    });
+apiKeyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    localStorage.setItem("googleApiKey", googleApiKey.value);
+    localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
+    alert("API key saved!");
+});
