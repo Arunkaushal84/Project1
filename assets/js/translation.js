@@ -110,3 +110,58 @@ document.getElementById('speech').addEventListener('click', () => {
   }
 });
 
+// Retrieve search history from local storage or create an empty array
+let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+// Translate button functionality
+document.getElementById('translate').addEventListener('click', () => {
+  let source = inputTxt.value;
+  let target = translateTargetSelect.value;
+  fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`, {
+    method: 'POST',
+    body: JSON.stringify({
+      q: source,
+      target: target
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      let translation = data.data.translations[0].translatedText;
+      outputText.value = translation;
+      // Create a search object and add it to the search history
+      const search = {
+        source: source,
+        target: target,
+        translation: translation,
+        timestamp: new Date().toISOString()
+      };
+      searchHistory.push(search);
+      // Save the updated search history to local storage
+      localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+      // Display search history
+      displaySearchHistory();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+// Display search history
+function displaySearchHistory() {
+  let searchHistoryDiv = document.getElementById('searchHistory');
+  searchHistoryDiv.innerHTML = '';
+  // Sort search history by timestamp, with most recent searches first
+  searchHistory.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  // Loop through each search in the search history and create a list item
+  for (let i = 0; i < searchHistory.length; i++) {
+    let search = searchHistory[i];
+    let li = document.createElement('li');
+    li.innerHTML = `${search.source} &#x2192; ${search.translation} (${search.target})`;
+    searchHistoryDiv.appendChild(li);
+  }
+}
+displaySearchHistory();
+
+document.getElementById('clearHistory').addEventListener('click', () => {
+  localStorage.removeItem('searchHistory');
+  searchHistory = [];
+  displaySearchHistory();
+});
