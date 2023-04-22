@@ -106,6 +106,23 @@
    border-bottom-color: #fff;
  }
 
+ .btn-delete {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+.btn-delete:hover {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+.btn-delete:focus {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+
 /*
  * Cover
  */
@@ -137,6 +154,15 @@
 .container {
     background-color: var(--dark-color);
     color: white;
+}
+.APIkeyNote{
+    color: white;
+    font-size: 12px;
+    font-style: italic;  
+}
+
+.containerText {
+  text-align: left;
 }
 
 .heading {

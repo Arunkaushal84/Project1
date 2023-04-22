@@ -36,7 +36,7 @@
     </div>
 
     <main role="main" class="inner cover">
-      <div class="container p-1 d-none rounded border border-white" id="containerA">
+      <div class="container p-1 d-none rounded border border-white containerText" id="containerA">
           <h2 class="p-3"><b>Translator:</b></h2>
           <form class="p-4">
               <!-- text area for source text-->
@@ -63,7 +63,7 @@
               <div class="form-group">
                 <label for="searchHistory">Search History:</label>
                 <ul id="searchHistory"></ul>
-                <button id="clearHistory" type="button">Clear Search History</button>
+                <button id="clearHistory" type="button" class="btn btn-primary btn-delete">Clear Search History</button>
               </div>
               <!-- checkbox for speech-->
               <div class="form-group form-check">
@@ -73,6 +73,9 @@
               <!-- button to translate text based on source and target language-->
               <button type="button" class="btn btn-primary" id="translate">Translate</button>
               <button type="button" class="btn btn-primary" id="speech">Speak</button>
+              <p class="text-danger" id="warning-text"></p>
+
+              
           </form>
       </div>
 
@@ -87,14 +90,17 @@
           </section>
       </div>
 
-    <div class="container p-1 d-none rounded border border-white" id="containerC">
+    <div class="container p-1 d-none rounded border border-white containerText" id="containerC">
       <h2 class="p-2"><b>API Key Configuration:</b></h2>
       <form id="apiKeyForm" class="p-3">
         <label for="googleAPIKeyInput">Google Translate API Key:</label>
         <input type="text" class="m-2" id="googleAPIKeyInput" name="googleAPIKeyInput"><br>
-        <label for="googleAPIKeyInput">Dictionary API Key:</label>
+        <p class="APIkeyNote">Note: In order to obtain a Google Translate API Key please visit: https://cloud.google.com/translate/docs/setup. You will need to register for a Google Cloud account</p>
+        <label for="dictionaryAPIKeyInput">Dictionary API Key:</label>
         <input type="text" class="m-3" id="dictionaryApiKeyInput" name="dictionaryApiKeyInput"><br>
-        <button type="submit">Save API Key</button>
+        <p class="APIkeyNote">Note: For the dictionary API key, please register for a developer account by visiting: https://dictionaryapi.com/register/index (account approval can take up to 2 hours)</p>
+        <!-- space between buttons-->
+        <button type="submit" class="btn btn-primary">Save API Key</button>&nbsp<button type="button" class="btn btn-primary btn-delete" id="clearAPIKey">Clear API Key</button>
       </form>
     </div>
   </main>

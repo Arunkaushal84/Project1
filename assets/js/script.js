@@ -52,5 +52,12 @@ apiKeyForm.addEventListener("submit", (event) => {
     event.preventDefault();
     localStorage.setItem("googleApiKey", googleApiKey.value);
     localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
+    location.reload();
     alert("API key saved!");
+});
+// clear API key from local storage when the form is submitted
+clearAPIKey.addEventListener("click", (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    alert("API key cleared!");
 });

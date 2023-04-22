@@ -84,7 +84,14 @@ document.getElementById('translate').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       let translation = data.data.translations[0].translatedText;
+      if (translation === null || translation === undefined) {
+        document.getElementById("warning-text").innerHTML = "No translation available, please check your input text or API key.";
+        document.getElementById("output-define").innerHTML = "";
+        return;
+      }
+      else {
       document.getElementById('outputText').value = translation;
+      }
     })
     .catch(err => {
       console.log(err);
@@ -126,6 +133,12 @@ document.getElementById('translate').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       let translation = data.data.translations[0].translatedText;
+      if (translation === null || translation === undefined) {
+        document.getElementById("warning-text").innerHTML = "No translation available, please check your input text or API key.";
+        document.getElementById("output-define").innerHTML = "";
+        return;
+      }
+      else {
       outputText.value = translation;
       // Create a search object and add it to the search history
       const search = {
@@ -139,7 +152,7 @@ document.getElementById('translate').addEventListener('click', () => {
       localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
       // Display search history
       displaySearchHistory();
-    })
+    }})
     .catch(err => {
       console.log(err);
     });
