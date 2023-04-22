@@ -47,13 +47,10 @@ buttonC.addEventListener('click', () => {
     }
 });
 
-
-
-
-        // Save API key to local storage when the form is submitted
-    apiKeyForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        localStorage.setItem("googleApiKey", googleApiKey.value);
-        localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
-        alert("API key saved!");
-    });
+// Save API key to local storage when the form is submitted
+apiKeyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    localStorage.setItem("googleApiKey", googleApiKey.value);
+    localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
+    alert("API key saved!");
+});
