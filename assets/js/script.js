@@ -46,7 +46,8 @@ buttonC.addEventListener('click', () => {
         console.log(`Container C is hidden: true`);
     }
 });
-        // Save API key to local storage when the form is submitted
+
+// Save API key to local storage when the form is submitted
 apiKeyForm.addEventListener("submit", (event) => {
     event.preventDefault();
     localStorage.setItem("googleApiKey", googleApiKey.value);
