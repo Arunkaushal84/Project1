@@ -86,6 +86,7 @@ document.getElementById('translate').addEventListener('click', () => {
       let translation = data.data.translations[0].translatedText;
       if (translation === null || translation === undefined) {
         document.getElementById("warning-text").innerHTML = "No translation available, please check your input text or API key.";
+        document.getElementById("warning-text").classList.remove("d-none");
         document.getElementById("output-define").innerHTML = "";
         return;
       }
