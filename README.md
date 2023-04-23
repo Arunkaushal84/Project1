@@ -11,11 +11,11 @@ Our group created a translation and dictionary web-based application. The web ap
 ## Live URL
 ![Alt text](assets/images/screenshot1.png) ![Alt text](assets/images/screenshot2.png) ![Alt text](assets/images/screenshot3.png) ![Alt text](assets/images/screenshot4.png)
 
-Live URL Link: ![Coming Soon!]()
+Live URL Link: [Github Pages](https://phillipkujawa.github.io/dictionary-translator-project1/)
 
 ## Contributor
 
-**Project Members:** Phillip Kujawa, Tian, Jung In Kim, Arun Kaushal, and Aldrin <br>
+**Project Members:** Phillip Kujawa, Tian, Jung In Kim, & Arun Kaushal <br>
 **Websites:** W3schools, stackoverflow, & reddit <br>
 **Instructor(s):** Ali Maqsood, Daler Singh <br>
 **Assistant Instructor(s):** Shihan, Adam, Krishna, Tareque Moatar <br>
