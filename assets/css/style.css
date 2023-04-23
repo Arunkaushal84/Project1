@@ -145,10 +145,8 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
-.output-box {
-    display: flex;
-    flex-direction: column;
+.lead {
+    text-align: center;
 }
 
 .nav {

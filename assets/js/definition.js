@@ -31,19 +31,19 @@ $(document).ready(function () {
                     }
                 }
 
-                for (var unitLabel in definitionLabels) {
+                for (var unitDefine in definitionLabels) {
                     var divEl = document.createElement("div");
                     divEl.className = "definition fade-in";
                     
                     var heading = document.createElement("h3");
-                    heading.textContent = unitLabel;
+                    heading.textContent = unitDefine;
                     
                     var outListEl = document.createElement("ol");
     
-                for (var i = 0; i < definitionLabels[unitLabel].length; i++) {
+                for (var i = 0; i < definitionLabels[unitDefine].length; i++) {
                     var inListEl = document.createElement("li");
         
-                    var define = definitionLabels[unitLabel][i];
+                    var define = definitionLabels[unitDefine][i];
                     define = define.charAt(0).toUpperCase() + define.slice(1);
                     define += ".";
         
@@ -87,8 +87,8 @@ $(document).ready(function () {
         event.preventDefault();
         searchDefinition();
     });
-
-    // Function to check user inputted word is valid or not then pass it to defineWord() function.
+    
+    // function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
         var word = $("#input-define").val().trim();
 
@@ -134,11 +134,10 @@ $(document).ready(function () {
 
         localStorage.setItem("definitionHistory", JSON.stringify(searchedWordArray));
     }
-    
+
     displayHistoryWord();
     // Function to take the variable word value from searchDefinition() 
     function displayHistoryWord() {
-
         var displayHistoryArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
 
         var defineSearchHistoryEl = document.getElementById("dSearchHistory");
@@ -149,10 +148,10 @@ $(document).ready(function () {
             var searchWord = displayHistoryArray[i];
             var btn = document.createElement("button");
             btn.innerHTML = searchWord;
-            btn.classList.add("btn", "btn-secondary", "mx-1");
-            btn.addEventListener("click", function () {
+            btn.classList.add("btn", "btn-secondary", "mx-1")
+            btn.addEventListener("click", function() {
                 defineWord(this.innerHTML);
-            })
+            });
             defineSearchHistoryEl.appendChild(btn);
         }
     }

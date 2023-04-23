@@ -1,19 +1,29 @@
-# Dictionary Translator Project 1
-
+# Dictionary Translator Web Application - Project 1
 ## Description
 
+Our group created a translation and dictionary web-based application. The web application entails: 
 
-## Links
-**Deployed Link:** [Coming Soon!]() <br>
-**Github Repo:** [Link to Github repository!](https://github.com/phillipkujawa/dictionary-translator-project1) <br>
+* Dictionary Translation - Ability to show nouns, verbs and adjectives 
+* Translation - Ability to translate in every support language that Google Cloud Translation API supports [language list in ISO-639 format](https://cloud.google.com/translate/docs/languages). 
+* Speech-to-Text - Ability to speak translated text in any language that your web browser supports. Text-to-speech language support is based on your local browser settings. 
+* API Key Configuration Page - Ability to add your own Google Cloud & Dictionary API key. An API key will be provided to instructors.
 
-## Previews
-Coming Soon!
+## Live URL
+![Alt text](screenshot1.png) ![Alt text](screenshot2.png) ![Alt text](screenshot3.png) ![Alt text](screenshot4.png)
 
-## Credits
+Live URL Link: 
+
+## Contributor
 
 **Project Members:** Phillip Kujawa, Tian, Jung In Kim, Arun Kaushal, and Aldrin <br>
 **Websites:** W3schools, stackoverflow, & reddit <br>
 **Instructor(s):** Ali Maqsood, Daler Singh <br>
 **Assistant Instructor(s):** Shihan, Adam, Krishna, Tareque Moatar <br>
 **Institution:** University of Toronto <br>
+
+## License
+
+MIT License
+
+
+
