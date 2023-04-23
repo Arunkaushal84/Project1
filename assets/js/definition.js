@@ -119,4 +119,18 @@ $(document).ready(function () {
             document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
         });
     }
+
+    var searchedWords = storedWords || [];
+    // Function to take the variable word value from searchDefinition() 
+    function searchWord() {
+        var saveWords= JSON.parse(localStorage.getItem("saveWords")) || [];
+    //check if the input is empty and if the array is less than 5
+        if (word !== "" && saveWords.length< 5 ) {
+            saveWords.push(word);
+            localStorage.setItem("saveWords", JSON.stringify(saveWords));
+
+        }
+
+    }
+
 })
