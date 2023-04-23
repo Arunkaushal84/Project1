@@ -50,20 +50,45 @@ buttonC.addEventListener('click', () => {
 // Save API key to local storage when the form is submitted
 apiKeyForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    localStorage.setItem("googleApiKey", googleApiKey.value);
-    localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
-    document.getElementById("apisaved").innerHTML = "API key saved, reloading page in 2 seconds...";
-    setTimeout(function() {
-        location.reload();
-    }, 2000);
+    if (googleApiKey.value !== "" && dictionaryApiKey.value !== "") {
+        localStorage.setItem("googleApiKey", googleApiKey.value);
+        localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
+        document.getElementById("apisaved").innerHTML = "Both API keys saved, reloading page in 2 seconds...";
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
+    }    
+    if (googleApiKey.value !== "" && dictionaryApiKey.value == "") {
+        localStorage.setItem("googleApiKey", googleApiKey.value);
+        document.getElementById("apisaved").innerHTML = "Google API key saved, reloading page in 2 seconds...";
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
+    } 
+    if (googleApiKey.value == "" && dictionaryApiKey.value !== "") {
+        localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
+        document.getElementById("apisaved").innerHTML = "Dictionary API key saved, reloading page in 2 seconds...";
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
+    } 
+    if (googleApiKey.value == "" && dictionaryApiKey.value == "") {
+        document.getElementById("apideleted").innerHTML = "Both keys empty, please enter API keys";
+    } 
     
 });
 // clear API key from local storage when the form is submitted
 clearAPIKey.addEventListener("click", (event) => {
     event.preventDefault();
-    localStorage.clear();
-    document.getElementById("apideleted").innerHTML = "API key deleted, reloading page in 2 seconds...";
-    setTimeout(function() {
-        location.reload();
-    }, 2000);
+    if (localStorage.getItem("googleApiKey") !== null || localStorage.getItem("dictionaryApiKey") !== null) {
+        console.log(localStorage.getItem("googleApiKey") && localStorage.getItem("dictionaryApiKey")) 
+        localStorage.clear();
+        document.getElementById("apideleted").innerHTML = "API keys deleted, reloading page in 2 seconds...";
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
+    }
+    else {
+        document.getElementById("apideleted").innerHTML = "Both keys empty, nothing to delete";
+    }
 });
