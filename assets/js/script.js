@@ -1,3 +1,4 @@
+//Variables for the different buttons (i.e. translation, dictionary, config)
 const containerA = document.querySelector('#containerA');
 const buttonA = document.querySelector('#toggleButtonA');
 const containerB = document.querySelector('#containerB');
@@ -12,7 +13,7 @@ const coverHeading = document.getElementById("cover-heading");
 const lead = document.getElementById("lead");
 const ogHeading = coverHeading.innerHTML;
 const ogLead = lead.innerHTML;
-
+//Button A is the translation button. Here is the event listener for it.
 buttonA.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
@@ -29,7 +30,7 @@ buttonA.addEventListener('click', () => {
         lead.innerHTML = ogLead;
     }
 });
-
+//Button B is the dictionary button. Here is the event listener for it.
 buttonB.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
@@ -46,7 +47,7 @@ buttonB.addEventListener('click', () => {
         lead.innerHTML = ogLead;
     }
 });
-
+//Button C is the config button. Here is the event listener for it.
 buttonC.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
@@ -64,7 +65,7 @@ buttonC.addEventListener('click', () => {
     }
 });
 
-// Save API key to local storage when the form is submitted
+//Save API key to local storage when the form is submitted. If statement to check if both API keys are entered, if not, only save the one that is entered.
 apiKeyForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (googleApiKey.value !== "" && dictionaryApiKey.value !== "") {
@@ -95,7 +96,7 @@ apiKeyForm.addEventListener("submit", (event) => {
     
 });
 
-// clear API key from local storage when the form is submitted
+//Clear API key from local storage. If statement to check if either API keys are entered. Else statement to display message if both API keys are empty and there is nothing to delete.
 clearAPIKey.addEventListener("click", (event) => {
     event.preventDefault();
     if (localStorage.getItem("googleApiKey") !== null || localStorage.getItem("dictionaryApiKey") !== null) {
