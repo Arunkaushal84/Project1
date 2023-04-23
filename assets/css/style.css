@@ -57,7 +57,7 @@ body {
   	color: #fff;
   	border-bottom-color: #fff;
 }
-
+/* Buttons for deletion and warnings when no input or API key missing*/
 .btn-delete {
  	color: #fff;
  	background-color: #ff0000;
@@ -113,7 +113,7 @@ body {
 	    float: right;
   	}
 } 
-
+/* Container and notes for the config page (i.e. instructions to obtain API keys)*/
 .container {
    	background-color: var(--dark-color);
    	color: white;
@@ -123,6 +123,7 @@ body {
    	font-size: 12px;
    	font-style: italic;  
 }
+/* Left align text in each container (i.e. translation page and dictionary page)*/
 
 .containerText {
  	text-align: left;
@@ -159,6 +160,7 @@ body {
   	display:inline;
   	padding-left: 300px;
 }
+/* Dictionary search history button*/
 
 .definition {
     border: 1px solid var(--dark-color);
@@ -178,6 +180,7 @@ body {
       opacity: 1;
     }
 }
+/* Fade in for dictionary page*/
 
 .fade-in {
     opacity: 1;
