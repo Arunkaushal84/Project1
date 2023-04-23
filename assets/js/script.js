@@ -20,11 +20,9 @@ buttonA.addEventListener('click', () => {
     document.getElementById("lead").innerHTML = `<b><u>First time users should choose the Config button to save your own API key to utilize the website.</u></b>`;
     containerA.classList.toggle('d-none');
     const isHiddenA = containerA.classList.contains('d-none');
-    console.log(`Container A is hidden: ${isHiddenA}`);
     if (!isHiddenA) {
         containerB.classList.add('d-none');
         containerC.classList.add('d-none');
-        console.log(`Container B is hidden: true`);
     }
     else {
         coverHeading.innerHTML = ogHeading;
@@ -39,11 +37,9 @@ buttonB.addEventListener('click', () => {
     document.getElementById("lead").innerHTML = `<b><u>First time users should choose the Config button to save your own API key to utilize the website.</u></b>`;
     containerB.classList.toggle('d-none');
     const isHiddenB = containerB.classList.contains('d-none');
-    console.log(`Container B is hidden: ${isHiddenB}`);
     if (!isHiddenB) {
         containerA.classList.add('d-none');
         containerC.classList.add('d-none');
-        console.log(`Container A is hidden: true`);
     }
     else {
         coverHeading.innerHTML = ogHeading;
@@ -58,11 +54,9 @@ buttonC.addEventListener('click', () => {
     document.getElementById("lead").innerHTML = `<b><u>It's highly recommended that you input & save both API keys to utilize the entire website's features.</u></b>`;
     containerC.classList.toggle('d-none');
     const isHiddenC = containerC.classList.contains('d-none');
-    console.log(`Container C is hidden: ${isHiddenC}`);
     if (!isHiddenC) {
         containerA.classList.add('d-none');
         containerB.classList.add('d-none');
-        console.log(`Container C is hidden: true`);
     }
     else {
         coverHeading.innerHTML = ogHeading;
@@ -96,7 +90,7 @@ apiKeyForm.addEventListener("submit", (event) => {
         }, 2000);
     } 
     if (googleApiKey.value == "" && dictionaryApiKey.value == "") {
-        document.getElementById("apideleted").innerHTML = "Both keys empty, please enter API keys";
+        document.getElementById("apideleted").innerHTML = "Both API key forms are empty, please enter a valid API key.";
     } 
     
 });
@@ -112,6 +106,6 @@ clearAPIKey.addEventListener("click", (event) => {
         }, 2000);
     }
     else {
-        document.getElementById("apideleted").innerHTML = "Both keys empty, nothing to delete";
+        document.getElementById("apideleted").innerHTML = "Both API keys are empty, nothing to delete.";
     }
 });

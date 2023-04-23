@@ -32,6 +32,7 @@ function populateTranslationLanguages() {
     })
     .catch(err => {
       console.log(err);
+      document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
     });
 }
 
@@ -75,7 +76,7 @@ document.getElementById('translate').addEventListener('click', () => {
   let target = translateTargetSelect.value;
   // if target is not set then give a warning if empty
   if (target === '') {
-     document.getElementById('translatewarning').innerHTML = 'Invalid input. Please make sure your API key is set and that you have input text to translate.';
+     document.getElementById('translatewarning').innerHTML = 'Invalid input! Please make sure your API key is set and that you have inputted text to translate.';
      return;
   }
   else {
@@ -93,6 +94,7 @@ document.getElementById('translate').addEventListener('click', () => {
     })
     .catch(err => {
       console.log(err);
+      document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
     });
 }});
 
@@ -152,6 +154,7 @@ document.getElementById('translate').addEventListener('click', () => {
     })
     .catch(err => {
       console.log(err);
+      document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
     });
 }});
 // Display search history
