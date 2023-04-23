@@ -60,8 +60,9 @@ $(document).ready(function () {
                     addAnimationDelays();
                 }, 100);
             })
-            .catch((error) => {
-                console.error("Error:", error);
+            .catch(() => {
+                console.error("Error:", "API key invalid.");
+                document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
             });
     }
 
@@ -113,8 +114,9 @@ $(document).ready(function () {
                     defineWord(word);
                 }
             })
-        .catch((error) => {
-            console.error("Error:", error);
+        .catch(() => {
+            console.error("Error:", "API key invalid.");
+            document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
         });
     }
 })
