@@ -11,7 +11,7 @@ Our group created a translation and dictionary web-based application. The web ap
 ## Live URL
 ![Alt text](assets/images/screenshot1.png) ![Alt text](assets/images/screenshot2.png) ![Alt text](assets/images/screenshot3.png) ![Alt text](assets/images/screenshot4.png)
 
-Live URL Link: ![Coming Soon!]()
+Live URL Link: [Github Pages](https://phillipkujawa.github.io/dictionary-translator-project1/)
 
 ## Contributor
 
