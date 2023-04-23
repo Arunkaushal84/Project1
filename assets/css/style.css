@@ -167,6 +167,7 @@ body {
     margin-bottom: 10px;
     background-color: var(--gray-color);
     color: var(--dark-color);
+	animation: fadeIn 0.9s ease-in;
 }
 
 @keyframes fadeIn {
@@ -185,8 +186,4 @@ body {
   
 .fade-in.hidden {
     opacity: 0;
-}
-  
-.definition {
-    animation: fadeIn 0.9s ease-in;
 }
