@@ -16,7 +16,7 @@ const ogLead = lead.innerHTML;
 buttonA.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
-    document.getElementById("cover-heading").innerHTML = "Dictionary & Translator";
+    document.getElementById("cover-heading").innerHTML = "Dictionary & <u><b>Translator</u></b>";
     document.getElementById("lead").innerHTML = `<b><u>First time users should choose the Config button to save your own API key to utilize the website.</u></b>`;
     containerA.classList.toggle('d-none');
     const isHiddenA = containerA.classList.contains('d-none');
@@ -33,7 +33,7 @@ buttonA.addEventListener('click', () => {
 buttonB.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
-    document.getElementById("cover-heading").innerHTML = "Dictionary & Translator";
+    document.getElementById("cover-heading").innerHTML = "<u><b>Dictionary</u></b> & Translator";
     document.getElementById("lead").innerHTML = `<b><u>First time users should choose the Config button to save your own API key to utilize the website.</u></b>`;
     containerB.classList.toggle('d-none');
     const isHiddenB = containerB.classList.contains('d-none');
@@ -50,7 +50,7 @@ buttonB.addEventListener('click', () => {
 buttonC.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
     document.getElementById("input-define").value = "";
-    document.getElementById("cover-heading").innerHTML = "Dictionary & Translator";
+    document.getElementById("cover-heading").innerHTML = "<u><b>Config</u></b>";
     document.getElementById("lead").innerHTML = `<b><u>It's highly recommended that you input & save both API keys to utilize the entire website's features.</u></b>`;
     containerC.classList.toggle('d-none');
     const isHiddenC = containerC.classList.contains('d-none');

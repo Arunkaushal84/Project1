@@ -81,12 +81,14 @@
           </form>
       </div>
 
-      <div class="container p-1 d-none rounded border border-white" id="containerB">
+      <div class="containerText container p-1 d-none rounded border border-white" id="containerB">
           <section class="definition-container p-3">
               <h2 class="p-3"><b>Dictionary:</b></h2>
               <p>Please type in your word below to search for your definition(s).</p>
+              <p class="defineHistoryContainer d-inline">Search History: <span id="dSearchHistory"> </span></p>
               <input type="text" id="input-define" class="p-1 m-3 w-50" maxlength="50" placeholder="Enter your word here..."></input>
               <input type="submit" id="defineBtn" value="Define" class="btn btn-primary">
+              <button id="clearDefineHistory" type="button" class="btn btn-primary btn-delete mt-2">Clear Search History</button>
               <p class="text-danger" id="warning-text"></p>
               <div class="output-box" id="output-define">Definition goes here...</div>
           </section>
