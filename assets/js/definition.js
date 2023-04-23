@@ -89,7 +89,7 @@ $(document).ready(function () {
         searchDefinition();
     });
     
-    // function to check user inputted word is valid or not then pass it to defineWord() function.
+    // Function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
         var word = $("#input-define").val().trim();
         // Check if the word is empty.
@@ -125,6 +125,7 @@ $(document).ready(function () {
             document.getElementById("warning-text-define").innerHTML = "Invalid or empty API key!";
         });
     }
+    
     // Function to save the word to the search history. 
     function saveHistoryWord(word) {
         // Search history array
@@ -159,11 +160,13 @@ $(document).ready(function () {
             defineSearchHistoryEl.appendChild(btn);
         }
     }
+
     // Click function for when the user clicks the "Clear History" button.
     $("#clearDefineHistory").click(function (event) {
         event.preventDefault();
         clearHistory();
     });
+
     // Function to clear the search history.
     function clearHistory() {
         localStorage.removeItem("definitionHistory");
