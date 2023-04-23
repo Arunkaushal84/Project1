@@ -52,12 +52,18 @@ apiKeyForm.addEventListener("submit", (event) => {
     event.preventDefault();
     localStorage.setItem("googleApiKey", googleApiKey.value);
     localStorage.setItem("dictionaryApiKey", dictionaryApiKey.value);
-    location.reload();
-    alert("API key saved!");
+    document.getElementById("apisaved").innerHTML = "API key saved, reloading page in 2 seconds...";
+    setTimeout(function() {
+        location.reload();
+    }, 2000);
+    
 });
 // clear API key from local storage when the form is submitted
 clearAPIKey.addEventListener("click", (event) => {
     event.preventDefault();
     localStorage.clear();
-    alert("API key cleared!");
+    document.getElementById("apideleted").innerHTML = "API key deleted, reloading page in 2 seconds...";
+    setTimeout(function() {
+        location.reload();
+    }, 2000);
 });

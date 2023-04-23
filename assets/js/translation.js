@@ -73,6 +73,11 @@ speechDropdown.style.display = 'none';
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
+  // if target is not set then give a warning if empty
+  if (target === '') {
+    alert('Invalid input. Please make sure your API key is set and that you have input text to translate.');
+    return;
+  }
 
   fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`, {
     method: 'POST',
@@ -84,15 +89,7 @@ document.getElementById('translate').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       let translation = data.data.translations[0].translatedText;
-      if (translation === null || translation === undefined) {
-        document.getElementById("warning-text").innerHTML = "No translation available, please check your input text or API key.";
-        document.getElementById("warning-text").classList.remove("d-none");
-        document.getElementById("output-define").innerHTML = "";
-        return;
-      }
-      else {
       document.getElementById('outputText').value = translation;
-      }
     })
     .catch(err => {
       console.log(err);
@@ -134,12 +131,6 @@ document.getElementById('translate').addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       let translation = data.data.translations[0].translatedText;
-      if (translation === null || translation === undefined) {
-        document.getElementById("warning-text").innerHTML = "No translation available, please check your input text or API key.";
-        document.getElementById("output-define").innerHTML = "";
-        return;
-      }
-      else {
       outputText.value = translation;
       // Create a search object and add it to the search history
       const search = {
@@ -153,7 +144,7 @@ document.getElementById('translate').addEventListener('click', () => {
       localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
       // Display search history
       displaySearchHistory();
-    }})
+    })
     .catch(err => {
       console.log(err);
     });

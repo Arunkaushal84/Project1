@@ -121,6 +121,12 @@
   background-color: #ff0000;
   border-color: #ff0000;
 }
+#apisaved {
+  color: #00ff00;
+}
+#apideleted {
+  color: #ff0000;
+}
 
 
 /*
