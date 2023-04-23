@@ -15,7 +15,7 @@ Live URL Link: [Github Pages](https://phillipkujawa.github.io/dictionary-transla
 
 ## Contributor
 
-**Project Members:** Phillip Kujawa, Tian, Jung In Kim, Arun Kaushal, and Aldrin <br>
+**Project Members:** Phillip Kujawa, Tian, Jung In Kim, & Arun Kaushal <br>
 **Websites:** W3schools, stackoverflow, & reddit <br>
 **Instructor(s):** Ali Maqsood, Daler Singh <br>
 **Assistant Instructor(s):** Shihan, Adam, Krishna, Tareque Moatar <br>
