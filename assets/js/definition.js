@@ -31,19 +31,19 @@ $(document).ready(function () {
                     }
                 }
 
-                for (var unitLabel in definitionLabels) {
+                for (var unitDefine in definitionLabels) {
                     var divEl = document.createElement("div");
                     divEl.className = "definition fade-in";
                     
                     var heading = document.createElement("h3");
-                    heading.textContent = unitLabel;
+                    heading.textContent = unitDefine;
                     
                     var outListEl = document.createElement("ol");
     
-                for (var i = 0; i < definitionLabels[unitLabel].length; i++) {
+                for (var i = 0; i < definitionLabels[unitDefine].length; i++) {
                     var inListEl = document.createElement("li");
         
-                    var define = definitionLabels[unitLabel][i];
+                    var define = definitionLabels[unitDefine][i];
                     define = define.charAt(0).toUpperCase() + define.slice(1);
                     define += ".";
         
@@ -88,7 +88,9 @@ $(document).ready(function () {
         searchDefinition();
     });
 
-    // Function to check user inputted word is valid or not then pass it to defineWord() function.
+ 
+    
+    // function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
         var word = $("#input-define").val().trim();
 
@@ -112,6 +114,7 @@ $(document).ready(function () {
                 else {
                     document.getElementById("warning-text").innerHTML = "";
                     defineWord(word);
+                    saveHistoryWord(word);
                 }
             })
         .catch(() => {
@@ -119,4 +122,46 @@ $(document).ready(function () {
             document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
         });
     }
+
+    function saveHistoryWord(word) {
+        //search history array
+        var searchedWordArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
+
+        searchWordArray.unshift(word);
+
+        if (searchedWordArray.length > 4) {
+            searchHistory.pop();
+        }
+
+        localStorage.setItem("definitionHistory", JSON.stringify(searchedWordArray));
+    }
+    
+    // Function to take the variable word value from searchDefinition() 
+    function displayHistoryWord() {
+
+        var displayHistoryArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
+
+        var defineSearchHistoryEl = document.getElementById("dSearchHistory");
+
+        defineSearchHistoryEl.innerHTML = "";
+
+        for (var i = 0; i < displayHistoryArray.length; i++) {
+            var searchWord = displayHistoryArray[i];
+            var p = document.createElement("p");
+            p.innerHTML = searchWord;
+            defineSearchHistoryEl.appendChild(p);
+        }
+
+        /*var saveWords= JSON.parse(localStorage.getItem("saveWords")) || [];
+    //check if the input is empty and if the array is less than 5
+        if (word !== "" && saveWords.length< 5 ) {
+            saveWords.push(word);
+            localStorage.setItem("saveWords", JSON.stringify(saveWords));
+
+        } */
+
+    }
+
+    displayHistoryWord();
+
 })
