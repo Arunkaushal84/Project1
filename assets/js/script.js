@@ -94,6 +94,7 @@ apiKeyForm.addEventListener("submit", (event) => {
     } 
     
 });
+
 // clear API key from local storage when the form is submitted
 clearAPIKey.addEventListener("click", (event) => {
     event.preventDefault();
