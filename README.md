@@ -9,9 +9,9 @@ Our group created a translation and dictionary web-based application. The web ap
 * API Key Configuration Page - Ability to add your own Google Cloud & Dictionary API key. An API key will be provided to instructors.
 
 ## Live URL
-![Alt text](screenshot1.png) ![Alt text](screenshot2.png) ![Alt text](screenshot3.png) ![Alt text](screenshot4.png)
+![Alt text](assets/images/screenshot1.png) ![Alt text](assets/images/screenshot2.png) ![Alt text](assets/images/screenshot3.png) ![Alt text](assets/images/screenshot4.png)
 
-Live URL Link: 
+Live URL Link: ![Coming Soon!]()
 
 ## Contributor
 
