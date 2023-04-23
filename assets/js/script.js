@@ -13,6 +13,7 @@ const coverHeading = document.getElementById("cover-heading");
 const lead = document.getElementById("lead");
 const ogHeading = coverHeading.innerHTML;
 const ogLead = lead.innerHTML;
+
 //Button A is the translation button. Here is the event listener for it.
 buttonA.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
@@ -30,6 +31,7 @@ buttonA.addEventListener('click', () => {
         lead.innerHTML = ogLead;
     }
 });
+
 //Button B is the dictionary button. Here is the event listener for it.
 buttonB.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
@@ -47,6 +49,7 @@ buttonB.addEventListener('click', () => {
         lead.innerHTML = ogLead;
     }
 });
+
 //Button C is the config button. Here is the event listener for it.
 buttonC.addEventListener('click', () => {
     document.getElementById("output-define").innerHTML = "";
