@@ -74,8 +74,10 @@ speechDropdown.style.display = 'none';
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
+  document.getElementById("translatewarning").innerHTML = "";
   // if target is not set then give a warning if empty
-  if (target === '') {
+  console.log(source);
+  if (target === '' || source === '') {
      document.getElementById('translatewarning').innerHTML = 'Invalid input! Please make sure your API key is set and that you have inputted text to translate.';
      return;
   }
@@ -123,7 +125,7 @@ let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
-  if (target === '') {
+  if (target === '' || source === '') {
     console.log('Invalid input. Please make sure your API key is set and that you have input text to translate.');
     return;
  }
