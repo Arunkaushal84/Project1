@@ -122,9 +122,15 @@
   border-color: #ff0000;
 }
 #apisaved {
+  margin-top: 10px;
   color: #00ff00;
 }
 #apideleted {
+  margin-top: 10px;
+  color: #ff0000;
+}
+#translatewarning {
+  margin-top: 10px;
   color: #ff0000;
 }
 
