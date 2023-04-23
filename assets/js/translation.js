@@ -75,10 +75,10 @@ document.getElementById('translate').addEventListener('click', () => {
   let target = translateTargetSelect.value;
   // if target is not set then give a warning if empty
   if (target === '') {
-    alert('Invalid input. Please make sure your API key is set and that you have input text to translate.');
-    return;
+     document.getElementById('translatewarning').innerHTML = 'Invalid input. Please make sure your API key is set and that you have input text to translate.';
+     return;
   }
-
+  else {
   fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`, {
     method: 'POST',
     body: JSON.stringify({
@@ -94,7 +94,7 @@ document.getElementById('translate').addEventListener('click', () => {
     .catch(err => {
       console.log(err);
     });
-});
+}});
 
 // Speak button functionality
 document.getElementById('speech').addEventListener('click', () => {
@@ -121,6 +121,11 @@ let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
+  if (target === '') {
+    console.log('Invalid input. Please make sure your API key is set and that you have input text to translate.');
+    return;
+ }
+ else {
   fetch(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`, {
     method: 'POST',
     body: JSON.stringify({
@@ -148,7 +153,7 @@ document.getElementById('translate').addEventListener('click', () => {
     .catch(err => {
       console.log(err);
     });
-});
+}});
 // Display search history
 function displaySearchHistory() {
   let searchHistoryDiv = document.getElementById('searchHistory');
