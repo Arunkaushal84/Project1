@@ -111,12 +111,59 @@ $(document).ready(function () {
                 }
                 else {
                     document.getElementById("warning-text").innerHTML = "";
+                    saveHistoryWord(word);
                     defineWord(word);
+                    displayHistoryWord();
                 }
             })
         .catch(() => {
             console.error("Error:", "API key invalid.");
             document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
         });
+    }
+
+    function saveHistoryWord(word) {
+        //search history array
+        var searchedWordArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
+
+        searchedWordArray.unshift(word);
+
+        if (searchedWordArray.length > 4) {
+            searchedWordArray.pop();
+        }
+
+        localStorage.setItem("definitionHistory", JSON.stringify(searchedWordArray));
+    }
+    
+    displayHistoryWord();
+    // Function to take the variable word value from searchDefinition() 
+    function displayHistoryWord() {
+
+        var displayHistoryArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
+
+        var defineSearchHistoryEl = document.getElementById("dSearchHistory");
+
+        defineSearchHistoryEl.innerHTML = "";
+
+        for (var i = 0; i < displayHistoryArray.length; i++) {
+            var searchWord = displayHistoryArray[i];
+            var btn = document.createElement("button");
+            btn.innerHTML = searchWord;
+            btn.classList.add("btn", "btn-secondary", "mx-1");
+            btn.addEventListener("click", function () {
+                defineWord(this.innerHTML);
+            })
+            defineSearchHistoryEl.appendChild(btn);
+        }
+    }
+
+    $("#clearDefineHistory").click(function (event) {
+        event.preventDefault();
+        clearHistory();
+    });
+
+    function clearHistory() {
+        localStorage.removeItem("definitionHistory");
+        displayHistoryWord();
     }
 })
