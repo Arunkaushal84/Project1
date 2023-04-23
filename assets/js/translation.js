@@ -1,4 +1,6 @@
-const apiKey = localStorage.getItem('googleApiKey'); //'AIzaSyBljBSfIn964aICm5vDOVmd76GexCJJlNY';
+//get API key from local storage
+const apiKey = localStorage.getItem('googleApiKey');
+//variables in HTML. Pulling classes and ids from HTML.
 let synth = speechSynthesis,
     inputForm = document.querySelector('form'),
     inputTxt = document.querySelector('#inputText'),
@@ -9,20 +11,21 @@ let synth = speechSynthesis,
 const speakCheckBox = document.getElementById('speakCheckBox');
 const speechButton = document.getElementById('speech');
 const speechDropdown = document.getElementById('speechdropdown');
-
+//voice list/array
 let voices = [];
-
+// Use to clear all the options from a dropdown menu or select element
 function clearOptions(targetSelect) {
   while (targetSelect.firstChild) {
     targetSelect.removeChild(targetSelect.firstChild);
   }
 }
-
+// Used to populate a list or dropdown menu with available translation languages
 function populateTranslationLanguages() {
   fetch(`https://translation.googleapis.com/language/translate/v2/languages?key=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       let languages = data.data.languages;
+      // creates a dropdown list of language options based on the languages array
       for (let i = 0; i < languages.length; i++) {
         let option = document.createElement('option');
         option.value = languages[i].language;
@@ -43,6 +46,7 @@ speakCheckBox.addEventListener('change', () => {
   if (speakCheckBox.checked === true) {
     speechDropdown.style.display = 'block';
     speechButton.style.display = 'inline-block';
+   // Text-to-speech functionality
     function getVoices() {
       voices = synth.getVoices();
       voices.forEach(voice => {
@@ -68,15 +72,12 @@ speakCheckBox.addEventListener('change', () => {
 speechButton.style.display = 'none';
 speechDropdown.style.display = 'none';
 
-// Rest of the code
-
 // Translate button functionality
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
   document.getElementById("translatewarning").innerHTML = "";
-  // if target is not set then give a warning if empty
-  console.log(source);
+  // if target or source is not set then give a warning if empty
   if (target === '' || source === '') {
      document.getElementById('translatewarning').innerHTML = 'Invalid input! Please make sure your API key is set and that you have inputted text to translate.';
      return;
@@ -121,7 +122,7 @@ document.getElementById('speech').addEventListener('click', () => {
 
 // Retrieve search history from local storage or create an empty array
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-// Translate button functionality
+// Translate button functionality with fetch for search history
 document.getElementById('translate').addEventListener('click', () => {
   let source = inputTxt.value;
   let target = translateTargetSelect.value;
@@ -174,7 +175,7 @@ function displaySearchHistory() {
   }
 }
 displaySearchHistory();
-
+//add event listener to clear history button
 document.getElementById('clearHistory').addEventListener('click', () => {
   localStorage.removeItem('searchHistory');
   searchHistory = [];
