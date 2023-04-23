@@ -87,8 +87,6 @@ $(document).ready(function () {
         event.preventDefault();
         searchDefinition();
     });
-
- 
     
     // function to check user inputted word is valid or not then pass it to defineWord() function.
     function searchDefinition() {
@@ -113,8 +111,9 @@ $(document).ready(function () {
                 }
                 else {
                     document.getElementById("warning-text").innerHTML = "";
-                    defineWord(word);
                     saveHistoryWord(word);
+                    defineWord(word);
+                    displayHistoryWord();
                 }
             })
         .catch(() => {
@@ -127,18 +126,18 @@ $(document).ready(function () {
         //search history array
         var searchedWordArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
 
-        searchWordArray.unshift(word);
+        searchedWordArray.unshift(word);
 
         if (searchedWordArray.length > 4) {
-            searchHistory.pop();
+            searchedWordArray.pop();
         }
 
         localStorage.setItem("definitionHistory", JSON.stringify(searchedWordArray));
     }
-    
+
+    displayHistoryWord();
     // Function to take the variable word value from searchDefinition() 
     function displayHistoryWord() {
-
         var displayHistoryArray = JSON.parse(localStorage.getItem("definitionHistory")) || [];
 
         var defineSearchHistoryEl = document.getElementById("dSearchHistory");
@@ -147,21 +146,23 @@ $(document).ready(function () {
 
         for (var i = 0; i < displayHistoryArray.length; i++) {
             var searchWord = displayHistoryArray[i];
-            var p = document.createElement("p");
-            p.innerHTML = searchWord;
-            defineSearchHistoryEl.appendChild(p);
+            var btn = document.createElement("button");
+            btn.innerHTML = searchWord;
+            btn.classList.add("btn", "btn-secondary", "mx-1")
+            btn.addEventListener("click", function() {
+                defineWord(this.innerHTML);
+            });
+            defineSearchHistoryEl.appendChild(btn);
         }
-
-        /*var saveWords= JSON.parse(localStorage.getItem("saveWords")) || [];
-    //check if the input is empty and if the array is less than 5
-        if (word !== "" && saveWords.length< 5 ) {
-            saveWords.push(word);
-            localStorage.setItem("saveWords", JSON.stringify(saveWords));
-
-        } */
-
     }
 
-    displayHistoryWord();
+    $("#clearDefineHistory").click(function (event) {
+        event.preventDefault();
+        clearHistory();
+    });
 
+    function clearHistory() {
+        localStorage.removeItem("definitionHistory");
+        displayHistoryWord();
+    }
 })
