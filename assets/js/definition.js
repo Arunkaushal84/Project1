@@ -1,11 +1,5 @@
 // Ready function to prevent anything from running unless it is ready and loaded.
 $(document).ready(function () {
-
-    /* 
-        We need a function to take the variable word value from searchDefinition() and put it into local storage then output a search history.
-        Once the search history button is outputted, it should store that word into that button then when clicked it will run the defineWord() function to output the definition again.
-    */ 
-
     // Function to fetch API data then display the definitions of a user inputted word from searchDefinition().
     function defineWord(word){
 
@@ -62,7 +56,7 @@ $(document).ready(function () {
             })
             .catch(() => {
                 console.error("Error:", "API key invalid.");
-                document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
+                document.getElementById("warning-text-define").innerHTML = "Invalid or empty API key!";
             });
     }
 
@@ -93,7 +87,7 @@ $(document).ready(function () {
         var word = $("#input-define").val().trim();
 
         if (word === "") {
-            document.getElementById("warning-text").innerHTML = "Please enter a word...";
+            document.getElementById("warning-text-define").innerHTML = "Please enter a word...";
             document.getElementById("output-define").innerHTML = "";
             return;
         }
@@ -105,12 +99,12 @@ $(document).ready(function () {
             .then((response) => response.json())
             .then((data) => {
                 if (data.length === 0 || !data[0].meta) {
-                    document.getElementById("warning-text").innerHTML = "Word not found! Please enter a valid word for definition.";
+                    document.getElementById("warning-text-define").innerHTML = "Word not found! Please enter a valid word for definition.";
                     document.getElementById("output-define").innerHTML = "";
                     return;
                 }
                 else {
-                    document.getElementById("warning-text").innerHTML = "";
+                    document.getElementById("warning-text-define").innerHTML = "";
                     saveHistoryWord(word);
                     defineWord(word);
                     displayHistoryWord();
@@ -118,7 +112,7 @@ $(document).ready(function () {
             })
         .catch(() => {
             console.error("Error:", "API key invalid.");
-            document.getElementById("warning-text").innerHTML = "Invalid or empty API key!";
+            document.getElementById("warning-text-define").innerHTML = "Invalid or empty API key!";
         });
     }
 
