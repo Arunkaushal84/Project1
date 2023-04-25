@@ -8,7 +8,7 @@ Translation - Ability to translate in every support language that Google Cloud T
 Speech-to-Text - Ability to speak translated text in any language that your web browser supports. Text-to-speech language support is based on your local browser settings.
 API Key Configuration Page - Ability to add your own Google Cloud & Dictionary API key. An API key will be provided to instructors.
 # Social Links:    
-Github Repo: Github Repo    
+Github Repo: [Github Repo ](https://github.com/phillipkujawa/dictionary-translator-project1)   
 
 Live URL Link: Deployed Link  
 
