@@ -1,6 +1,6 @@
 # Project1
-Dictionary Translator Web Application - Project 1  
-Description  
+# Dictionary Translator Web Application - Project 1  
+# Description  
 Our group created a translation and dictionary web-based application. The web application entails:
 
 Dictionary Translation - Ability to show nouns, verbs and adjectives
